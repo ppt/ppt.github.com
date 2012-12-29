@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vagrant | For The Love Tech]]></title>
+  <link href="http://ppt.github.com/blog/categories/vagrant/atom.xml" rel="self"/>
+  <link href="http://ppt.github.com/"/>
+  <updated>2012-12-29T23:35:48+07:00</updated>
+  <id>http://ppt.github.com/</id>
+  <author>
+    <name><![CDATA[Praphan Theeravanvilai]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[VeeWee gem ที่ใช้สร้าง vagrant box]]></title>
+    <link href="http://ppt.github.com/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box/"/>
+    <updated>2012-12-29T16:50:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/jedi4ever/veewee">https://github.com/jedi4ever/veewee</a></p>
+
+<h2 id="install">Install</h2>
+
+<p><code>bash
+gem install veewee
+</code></p>
+
+<p><code>ruby Gemfile
+gem 'veewee'
+</code></p>
+
+<h2 id="section">คำสั่งใช้งาน</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>vagrang boxname …</td>
+      <td>เพื่อสร้าง vagrant box</td>
+    </tr>
+    <tr>
+      <td>veewee …</td>
+      <td>เพื่อสร้าง image อื่น ๆ อย่างเช่น kvm, vmware</td>
+    </tr>
+    <tr>
+      <td>boxname …</td>
+      <td>คือชื่อ ​ที่ตั้งให้ basebox ที่เรากำลังสร้าง</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="vagrant-box">ตัวอย่าง คำสั่งที่ใช้สร้าง vagrant box</h2>
+
+<p><code>bash
+vagrant basebox templates # เพื่อโชว์ template ในการสร้าง
+vagrant basebox define '&lt;os-name&gt;' 'ubuntu-12.10-server' # เพื่อสร้าง file config ต่าง ๆ ที่ใช้ในการสร้าง
+vagrant basebox undefine &lt;box-name&gt; เพื่อ delete config files ทั้ง path
+vagrant basebox build 'ubuntu' # เพื่อสร้าง box
+vagrant basebox validate 'ubuntu' # run unit test ว่า install เรียบร้อยไหม
+vagrant basebox export 'ubuntu' # สร้าง box เพื่อใช้ใน vagrant box add
+vagrant basebox ssh | up | halt | destroy &lt;os-name&gt; # เหมือนคำสั่ง vagrant ทั่วไป เพื่อใช้ control virtualbox
+</code></p>
+
+<h2 id="config-script">Config Script</h2>
+
+<p>config ที่ modify &lt;veewee dir&gt;/definitions/&lt;box name&gt;/</p>
+
+<ul>
+  <li>definition.rb ใช้แก้ขนาด memoty, harddisk
+    <ul>
+      <li>ปกติจะ edit แค่ file นี้</li>
+    </ul>
+  </li>
+  <li>postinstall.sh script ที่ใช้ install package ต่าง ๆ หลังจากสร้าง vm เสร็จ</li>
+  <li>&lt;veewee dir&gt;/iso ใช้เก็บ image distro.iso กับ vboxguest ปกติทั้งคู่จะ download อัตโนมัติ แต่ถ้ามี file ใน path ./iso ก็จะใช้ localfile
+template ของ ubuntu จะมีแบบ pkg และไม่ pkg จะต่างกัน คือ pkg จะ install โดยใช้ apt-get แต่อย่างหลังจะ install โดย compile จาก sourceซึ่งจะช้ามาก</li>
+</ul>
+
+<h2 id="bug">Bug</h2>
+
+<p>ubuntu-server-pkg template มี bug ตอนท้ายไม่ได้ลบ apt-get cache ที่ /var/cache/apt/</p>
+
+<p>เติมตอนท้าย postinstall.sh เพื่อ clear cache</p>
+
+<p><code>bash
+sudo apt-get clean
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

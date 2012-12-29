@@ -9,9 +9,12 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="h1 h2 normal text
-">
+  <meta name="description" content="https://github.com/jedi4ever/veewee Install 1
+gem install veewee Gemfile1
+gem &#39;veewee&#39; คำสั่งใช้งาน vagrang boxname … เพื่อสร้าง vagrant box &hellip;">
   
+
+<link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -71,7 +74,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box/">VeeWee Gem Used to Create the Customized Vagrant Box</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box/">VeeWee Gem ที่ใช้สร้าง Vagrant Box</a></h1>
     
     
       <p class="meta">
@@ -94,11 +97,79 @@
   </header>
 
 
-  <div class="entry-content"><h1>h1</h1>
+  <div class="entry-content"><p><a href="https://github.com/jedi4ever/veewee">https://github.com/jedi4ever/veewee</a></p>
 
-<h2>h2</h2>
+<h2 id="install">Install</h2>
 
-<p>normal text</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">gem install veewee
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">gem</span> <span class="s1">&#39;veewee&#39;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="section">คำสั่งใช้งาน</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>vagrang boxname …</td>
+      <td>เพื่อสร้าง vagrant box</td>
+    </tr>
+    <tr>
+      <td>veewee …</td>
+      <td>เพื่อสร้าง image อื่น ๆ อย่างเช่น kvm, vmware</td>
+    </tr>
+    <tr>
+      <td>boxname …</td>
+      <td>คือชื่อ ​ที่ตั้งให้ basebox ที่เรากำลังสร้าง</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="vagrant-box">ตัวอย่าง คำสั่งที่ใช้สร้าง vagrant box</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">vagrant basebox templates <span class="c"># เพื่อโชว์ template ในการสร้าง</span>
+</span><span class="line">vagrant basebox define <span class="s1">&#39;&lt;os-name&gt;&#39;</span> <span class="s1">&#39;ubuntu-12.10-server&#39;</span> <span class="c"># เพื่อสร้าง file config ต่าง ๆ ที่ใช้ในการสร้าง</span>
+</span><span class="line">vagrant basebox undefine &lt;box-name&gt; เพื่อ delete config files ทั้ง path
+</span><span class="line">vagrant basebox build <span class="s1">&#39;ubuntu&#39;</span> <span class="c"># เพื่อสร้าง box</span>
+</span><span class="line">vagrant basebox validate <span class="s1">&#39;ubuntu&#39;</span> <span class="c"># run unit test ว่า install เรียบร้อยไหม</span>
+</span><span class="line">vagrant basebox <span class="nb">export</span> <span class="s1">&#39;ubuntu&#39;</span> <span class="c"># สร้าง box เพื่อใช้ใน vagrant box add</span>
+</span><span class="line">vagrant basebox ssh | up | halt | destroy &lt;os-name&gt; <span class="c"># เหมือนคำสั่ง vagrant ทั่วไป เพื่อใช้ control virtualbox</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="config-script">Config Script</h2>
+
+<p>config ที่ modify &lt;veewee dir&gt;/definitions/&lt;box name&gt;/</p>
+
+<ul>
+  <li>definition.rb ใช้แก้ขนาด memoty, harddisk
+    <ul>
+      <li>ปกติจะ edit แค่ file นี้</li>
+    </ul>
+  </li>
+  <li>postinstall.sh script ที่ใช้ install package ต่าง ๆ หลังจากสร้าง vm เสร็จ</li>
+  <li>&lt;veewee dir&gt;/iso ใช้เก็บ image distro.iso กับ vboxguest ปกติทั้งคู่จะ download อัตโนมัติ แต่ถ้ามี file ใน path ./iso ก็จะใช้ localfile
+template ของ ubuntu จะมีแบบ pkg และไม่ pkg จะต่างกัน คือ pkg จะ install โดยใช้ apt-get แต่อย่างหลังจะ install โดย compile จาก sourceซึ่งจะช้ามาก</li>
+</ul>
+
+<h2 id="bug">Bug</h2>
+
+<p>ubuntu-server-pkg template มี bug ตอนท้ายไม่ได้ลบ apt-get cache ที่ /var/cache/apt/</p>
+
+<p>เติมตอนท้าย postinstall.sh เพื่อ clear cache</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">sudo apt-get clean
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
   
   
@@ -119,7 +190,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box/">VeeWee gem used to create the customized vagrant box</a>
+        <a href="/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box/">VeeWee gem ที่ใช้สร้าง vagrant box</a>
       </li>
     
   </ul>
