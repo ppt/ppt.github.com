@@ -148,28 +148,48 @@ gem &#39;veewee&#39; คำสั่งใช้งาน vagrang boxname … �
 
 <h2 id="config-script">Config Script</h2>
 
-<p>config ที่ modify &lt;veewee dir&gt;/definitions/&lt;box name&gt;/</p>
+<p>Config Path <em>&lt;veewee dir&gt;/definitions/&lt;box name&gt;/</em></p>
 
-<ul>
-  <li>definition.rb ใช้แก้ขนาด memoty, harddisk
-    <ul>
-      <li>ปกติจะ edit แค่ file นี้</li>
-    </ul>
-  </li>
-  <li>postinstall.sh script ที่ใช้ install package ต่าง ๆ หลังจากสร้าง vm เสร็จ</li>
-  <li>&lt;veewee dir&gt;/iso ใช้เก็บ image distro.iso กับ vboxguest ปกติทั้งคู่จะ download อัตโนมัติ แต่ถ้ามี file ใน path ./iso ก็จะใช้ localfile
-template ของ ubuntu จะมีแบบ pkg และไม่ pkg จะต่างกัน คือ pkg จะ install โดยใช้ apt-get แต่อย่างหลังจะ install โดย compile จาก sourceซึ่งจะช้ามาก</li>
-</ul>
+<table>
+  <tbody>
+    <tr>
+      <td>definition.rb</td>
+      <td>ใช้แก้ขนาด memoty, harddisk <em style="color: red">ปกติจะ edit แค่ file นี้</em></td>
+    </tr>
+    <tr>
+      <td>postinstall.sh</td>
+      <td>script ที่ใช้ install package ต่าง ๆ หลังจากสร้าง vm เสร็จ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="iso-files">ISO files</h2>
+
+<p>&lt;veewee dir&gt;/iso ใช้เก็บ image distro.iso กับ vboxguest ปกติทั้งคู่จะ download อัตโนมัติ แต่ถ้ามี file ใน path ./iso ก็จะใช้ localfile </p>
+
+<h2 id="ubuntu-templates">ubuntu templates</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>vagrant basebox templates</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">vagrant basebox define <span class="s1">&#39;&lt;boxname&gt;&#39;</span> <span class="s1">&#39;ubuntu-12.10-server-amd64&#39;</span>
+</span><span class="line">vagrant basebox define <span class="s1">&#39;&lt;boxname&gt;&#39;</span> <span class="s1">&#39;ubuntu-12.10-server-amd64-packages&#39;</span>
+</span><span class="line">vagrant basebox define <span class="s1">&#39;&lt;boxname&gt;&#39;</span> <span class="s1">&#39;ubuntu-12.10-server-i386&#39;</span>
+</span><span class="line">vagrant basebox define <span class="s1">&#39;&lt;boxname&gt;&#39;</span> <span class="s1">&#39;ubuntu-12.10-server-i386-packages&#39;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>template ของ ubuntu จะมีแบบ pkg และไม่มี pkg สิ่งที่ต่างกัน คือ แบบ pkg จะ install โดยใช้ apt-get แต่อย่างหลังจะ install โดย compile จาก source ซึ่งจะช้ามาก</p>
 
 <h2 id="bug">Bug</h2>
 
 <p>ubuntu-server-pkg template มี bug ตอนท้ายไม่ได้ลบ apt-get cache ที่ /var/cache/apt/</p>
 
-<p>เติมตอนท้าย postinstall.sh เพื่อ clear cache</p>
-
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class="bash"><span class="line">sudo apt-get clean
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>เติมตอนท้าย postinstall.sh เพื่อ clear cache</p>
 </div>
   
   
