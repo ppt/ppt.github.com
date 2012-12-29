@@ -21,6 +21,7 @@ table th, table td {
 table th {
   border-style:solid;
   font-weight:bold;
+  text-align:center;
   /*background: url("/images/noise.png?1330434582") repeat scroll left top #F7F3F7;*/
   background-color: #B4EEB4;
 }

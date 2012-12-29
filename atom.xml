@@ -4,7 +4,7 @@
   <title><![CDATA[For The Love Tech]]></title>
   <link href="http://ppt.github.com/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2012-12-29T23:59:26+07:00</updated>
+  <updated>2012-12-30T00:42:07+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -35,6 +35,12 @@
 <h2 id="section">คำสั่งใช้งาน</h2>
 
 <table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td>vagrang boxname …</td>
@@ -74,6 +80,12 @@
 <p>Config Path <em>&lt;veewee dir&gt;/definitions/&lt;box name&gt;/</em></p>
 
 <table>
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td>definition.rb</td>
@@ -85,6 +97,8 @@
     </tr>
   </tbody>
 </table>
+
+<p><br /></p>
 
 <h2 id="iso-files">ISO files</h2>
 
@@ -113,6 +127,7 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>เติมตอนท้าย postinstall.sh เพื่อ clear cache</p>
+
 ]]></content>
   </entry>
   
