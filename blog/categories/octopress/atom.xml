@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2012-12-30T10:53:16+07:00</updated>
+  <updated>2012-12-30T10:55:44+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -23,11 +23,7 @@
 <ul>
   <li>Home: <a href="http://octopress.org/">http://octopress.org/</a></li>
   <li>Document: <a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
-  <li>WikiSyntax
-    <ul>
-      <li>Kramdown: <a href="http://kramdown.rubyforge.org/quickref.html">http://kramdown.rubyforge.org/quickref.html</a></li>
-    </ul>
-  </li>
+  <li>Kramdown: <a href="http://kramdown.rubyforge.org/quickref.html">http://kramdown.rubyforge.org/quickref.html</a></li>
 </ul>
 
 <h2 id="octopress-installation">Octopress Installation</h2>
