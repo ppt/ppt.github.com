@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github, | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/github-/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2012-12-30T11:11:51+07:00</updated>
+  <updated>2012-12-30T12:31:08+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -46,6 +46,18 @@ bundle install
 rake setup_github_pages
 </code>
 - Edit <code>_config.yml</code></p>
+
+<h2 id="error-">Error ตอนใช้ภาษาไทย</h2>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/12660159/how-to-generate-octopress-on-windows">http://stackoverflow.com/questions/12660159/how-to-generate-octopress-on-windows</a></li>
+  <li>set bash profile</li>
+</ul>
+
+<p><code>bash ~/.zshrc
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+</code></p>
 
 <h2 id="kramdown-installation">Kramdown Installation</h2>
 
