@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: github, | For The Love Technologies]]></title>
+  <link href="http://ppt.github.com/blog/categories/github-/atom.xml" rel="self"/>
+  <link href="http://ppt.github.com/"/>
+  <updated>2012-12-30T10:50:48+07:00</updated>
+  <id>http://ppt.github.com/</id>
+  <author>
+    <name><![CDATA[Praphan Theeravanvilai]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress]]></title>
+    <link href="http://ppt.github.com/blog/2012/12/30/octopress/"/>
+    <updated>2012-12-30T09:35:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2012/12/30/octopress</id>
+    <content type="html"><![CDATA[<h2 id="octopress-web">Octopress Web</h2>
+
+<ul>
+  <li>Home: <a href="http://octopress.org/">http://octopress.org/</a></li>
+  <li>Document: <a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
+  <li>WikiSyntax
+    <ul>
+      <li>Kramdown: <a href="http://kramdown.rubyforge.org/quickref.html">http://kramdown.rubyforge.org/quickref.html</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="octopress-installation">Octopress Installation</h2>
+
+<ul>
+  <li>Just copy all file from site</li>
+  <li>Run </li>
+</ul>
+
+<p><code>bash
+bundle install
+</code></p>
+
+<ul>
+  <li>Github สร้าง username.github.com repo e.g. ppt.github.com</li>
+  <li>Run</li>
+</ul>
+
+<p><code>bash
+rake setup_github_pages
+</code>
+- Edit <code>_config.yml</code></p>
+
+<h2 id="kramdown-installation">Kramdown Installation</h2>
+
+<p>เนื่องจาก Markdown ไม่ support table เลยใช้ Kramdown</p>
+
+<ul>
+  <li>edit</li>
+</ul>
+
+<p><code>ruby \_config.yml
+# markdown: rdiscount
+markdown: kramdown
+</code></p>
+
+<h2 id="table-patch">Table Patch</h2>
+
+<p>การแสดงตารางยังมีปัญหา ต้อง patch</p>
+
+<ul>
+  <li><a href="http://samwize.com/2012/09/24/octopress-table-stylesheet/">http://samwize.com/2012/09/24/octopress-table-stylesheet/</a></li>
+  <li>add css file : source/stylesheets/data-table.css
+    <ul>
+      <li>ใน style sheet มีการ hardcode ให้ header center</li>
+    </ul>
+  </li>
+</ul>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>source/stylesheets/data-table.css (data-table.css)</span> <a href='/downloads/code/octopress/data-table.css'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">border-style</span><span class="o">:</span><span class="k">solid</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-width</span><span class="o">:</span><span class="m">1px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-color</span><span class="o">:</span><span class="m">#e7e3e7</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">th</span><span class="o">,</span> <span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">td</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">border-style</span><span class="o">:</span><span class="k">dashed</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-width</span><span class="o">:</span><span class="m">1px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-color</span><span class="o">:</span><span class="m">#e7e3e7</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">padding-left</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">padding-right</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">th</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">border-style</span><span class="o">:</span><span class="k">solid</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">font-weight</span><span class="o">:</span><span class="k">bold</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;/images/noise.png?1330434582&quot;)</span> <span class="k">repeat</span> <span class="k">scroll</span> <span class="k">left</span> <span class="k">top</span> <span class="m">#F7F3F7</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">th</span><span class="o">[</span><span class="nt">align</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="o">],</span> <span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">td</span><span class="o">[</span><span class="nt">align</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="o">]</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">text-align</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">th</span><span class="o">[</span><span class="nt">align</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="o">],</span> <span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">td</span><span class="o">[</span><span class="nt">align</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="o">]</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">text-align</span><span class="o">:</span><span class="k">right</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">th</span><span class="o">[</span><span class="nt">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">],</span> <span class="o">*</span> <span class="o">+</span> <span class="nt">table</span> <span class="nt">td</span><span class="o">[</span><span class="nt">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">]</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<ul>
+  <li>add link header : source/_includes/head.html</li>
+</ul>
+
+<p><code>html source/_includes/head.html
+&lt;link href="http://ppt.github.com/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" /&gt;
+</code></p>
+
+<ul>
+  <li>การใช้งาน</li>
+</ul>
+
+<p><code>
+header#1 | header#2 | header#3
+|-
+cell 1 | cell 2 | cell 3
+</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>header#1</th>
+      <th>header#2</th>
+      <th>header#3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cell 1</td>
+      <td>cell 2</td>
+      <td>cell 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="markdown-trick">Markdown trick</h2>
+
+<ul>
+  <li>Bold &amp; Italic</li>
+</ul>
+
+<p><code>
+*italic*   **bold**
+_italic_   __bold__
+</code></p>
+
+<p><em>italic</em>   <strong>bold</strong><br />
+<em>italic</em>   <strong>bold</strong></p>
+
+<ul>
+  <li>Linefeed ใน paragraph เติม 2 space ท้ายบรรทัด</li>
+  <li>Set สี</li>
+</ul>
+
+<p style="color: blue">```</p>
+<p>#### header
+Effect only header<br />
+<em style="color: red">italic red</em><br />
+This is <span style="color: green">written in red</span>.
+```</p>
+
+<h4 style="color: blue" id="header">header</h4>
+<p>Effect only header<br />
+<em style="color: red">italic red</em><br />
+This is <span style="color: green">written in red</span>.</p>
+]]></content>
+  </entry>
+  
+</feed>
