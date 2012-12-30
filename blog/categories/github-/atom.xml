@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github, | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/github-/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2012-12-30T12:31:08+07:00</updated>
+  <updated>2012-12-30T12:38:27+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -184,6 +184,18 @@ cell 1 | cell 2 | cell 3
     </tr>
   </tbody>
 </table>
+
+<p><br /></p>
+
+<h2 id="section">คำสั่งหลัก ๆ</h2>
+
+<p><code>bash
+rake -T                        # List all commands
+rake deploy                    # Default deploy task
+rake gen_deploy                # Generate website and deploy
+rake generate                  # Generate jekyll site
+rake preview                   # preview the site in a web browser
+</code></p>
 
 <h2 id="markdown-trick">Markdown trick</h2>
 

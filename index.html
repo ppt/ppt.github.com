@@ -268,15 +268,31 @@
   </tbody>
 </table>
 
+<p><br /></p>
+
+<h2 id="section">คำสั่งหลัก ๆ</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">rake -T                        <span class="c"># List all commands</span>
+</span><span class="line">rake deploy                    <span class="c"># Default deploy task</span>
+</span><span class="line">rake gen_deploy                <span class="c"># Generate website and deploy</span>
+</span><span class="line">rake generate                  <span class="c"># Generate jekyll site</span>
+</span><span class="line">rake preview                   <span class="c"># preview the site in a web browser</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
 <h2 id="markdown-trick">Markdown trick</h2>
 
 <ul>
   <li>Bold &amp; Italic</li>
 </ul>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>source/_includes/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="html"><span class="line">*italic*   **bold**
+</pre></td><td class="code"><pre><code class="bash"><span class="line">*italic*   **bold**
 </span><span class="line">_italic_   __bold__
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -288,16 +304,16 @@
   <li>Set สี</li>
 </ul>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>source/_includes/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
 <span class="line-number">5</span>
-</pre></td><td class="code"><pre><code class="html"><span class="line">{: style=&quot;color: blue&quot;}
-</span><span class="line">#### header
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="o">{</span>: <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;color: blue&quot;</span><span class="o">}</span>
+</span><span class="line"><span class="c">#### header</span>
 </span><span class="line">Effect only header
-</span><span class="line">*italic red*{: style=&quot;color: red&quot;}
-</span><span class="line">This is <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color: green&quot;</span><span class="nt">&gt;</span>written in red<span class="nt">&lt;/span&gt;</span>.
+</span><span class="line">*italic red*<span class="o">{</span>: <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;color: red&quot;</span><span class="o">}</span>
+</span><span class="line">This is &lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;color: green&quot;</span>&gt;written in red&lt;/span&gt;.
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h4 style="color: blue" id="header">header</h4>
