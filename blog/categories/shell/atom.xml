@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: shell | For The Love Technologies]]></title>
+  <link href="http://ppt.github.com/blog/categories/shell/atom.xml" rel="self"/>
+  <link href="http://ppt.github.com/"/>
+  <updated>2013-01-01T10:51:45+07:00</updated>
+  <id>http://ppt.github.com/</id>
+  <author>
+    <name><![CDATA[Praphan Theeravanvilai]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ZSH]]></title>
+    <link href="http://ppt.github.com/blog/2013/01/01/zsh/"/>
+    <updated>2013-01-01T10:30:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2013/01/01/zsh</id>
+    <content type="html"><![CDATA[<h2 id="function">Function</h2>
+
+<h3 id="parameters">Parameters</h3>
+
+<ul>
+  <li>$0 command</li>
+  <li>$1,$2 parameters 1,2</li>
+  <li>$# number of parameters</li>
+  <li>$@ all parameters in array, start with 1..n, no 0</li>
+</ul>
+
+<p>``` bash
+e() {
+  echo $0
+  echo $2
+  echo $#
+  echo $@
+  echo $@[0]
+  echo $@[3]
+}</p>
+
+<p>e a b c
+e
+b
+3
+a b c</p>
+
+<p>c
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

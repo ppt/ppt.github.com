@@ -5,14 +5,21 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - For The Love Technologies</title>
+  <title>ZSH - For The Love Technologies</title>
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Blog Archive 2013 ZSH
-Jan 01 2013 posted in shell 2012 Octopress
-Dec 30 2012 posted in blog, github, VeeWee gem ที่ใช้สร้าง vagrant box
-Dec 29 2012 &hellip;">
+  <meta name="description" content="Function Parameters $0 command $1,$2 parameters 1,2 $# number of parameters $@ all parameters in array, start with 1..n, no 0 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11 &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -23,7 +30,7 @@ Dec 29 2012 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ppt.github.com/blog/archives/">
+  <link rel="canonical" href="http://ppt.github.com/blog/2013/01/01/zsh/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,66 +75,127 @@ Dec 29 2012 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">ZSH</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-01T10:30:00+07:00" pubdate data-updated="true">Jan 1<span>st</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><h2 id="function">Function</h2>
 
-  
-  <h2>2013</h2>
+<h3 id="parameters">Parameters</h3>
 
-<article>
-  
-<h1><a href="/blog/2013/01/01/zsh/">ZSH</a></h1>
-<time datetime="2013-01-01T10:30:00+07:00" pubdate><span class='month'>Jan</span> <span class='day'>01</span> <span class='year'>2013</span></time>
+<ul>
+  <li>$0 command</li>
+  <li>$1,$2 parameters 1,2</li>
+  <li>$# number of parameters</li>
+  <li>$@ all parameters in array, start with 1..n, no 0</li>
+</ul>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/shell/'>shell</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/12/30/octopress/">Octopress</a></h1>
-<time datetime="2012-12-30T09:35:00+07:00" pubdate><span class='month'>Dec</span> <span class='day'>30</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/github-/'>github,</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/12/29/veewee-gem-to-create-customized-vagrant-box/">VeeWee gem ที่ใช้สร้าง vagrant box</a></h1>
-<time datetime="2012-12-29T16:50:00+07:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/vagrant/'>vagrant</a></span>
-</footer>
-
-
-</article>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">e<span class="o">()</span> <span class="o">{</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$0</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$2</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$#</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$@</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$@</span><span class="o">[</span>0<span class="o">]</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$@</span><span class="o">[</span>3<span class="o">]</span>
+</span><span class="line"><span class="o">}</span>
+</span><span class="line">
+</span><span class="line">e a b c
+</span><span class="line">e
+</span><span class="line">b
+</span><span class="line">3
+</span><span class="line">a b c
+</span><span class="line">
+</span><span class="line">c
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Praphan Theeravanvilai</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-01T10:30:00+07:00" pubdate data-updated="true">Jan 1<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/shell/'>shell</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ppt.github.com/blog/2013/01/01/zsh/" data-via="" data-counturl="http://ppt.github.com/blog/2013/01/01/zsh/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/30/octopress/" title="Previous Post: Octopress">&laquo; Octopress</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

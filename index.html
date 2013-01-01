@@ -9,7 +9,17 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Octopress Web Home: http://octopress.org/ Document: http://octopress.org/docs/ Pygment Language List : http://pygments.org/docs/lexers/ Kramdown: &hellip;">
+  <meta name="description" content="Function Parameters $0 command $1,$2 parameters 1,2 $# number of parameters $@ all parameters in array, start with 1..n, no 0 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11 &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -66,6 +76,85 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/01/zsh/">ZSH</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-01T10:30:00+07:00" pubdate data-updated="true">Jan 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="function">Function</h2>
+
+<h3 id="parameters">Parameters</h3>
+
+<ul>
+  <li>$0 command</li>
+  <li>$1,$2 parameters 1,2</li>
+  <li>$# number of parameters</li>
+  <li>$@ all parameters in array, start with 1..n, no 0</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">e<span class="o">()</span> <span class="o">{</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$0</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$2</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$#</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$@</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$@</span><span class="o">[</span>0<span class="o">]</span>
+</span><span class="line">  <span class="nb">echo</span> <span class="nv">$@</span><span class="o">[</span>3<span class="o">]</span>
+</span><span class="line"><span class="o">}</span>
+</span><span class="line">
+</span><span class="line">e a b c
+</span><span class="line">e
+</span><span class="line">b
+</span><span class="line">3
+</span><span class="line">a b c
+</span><span class="line">
+</span><span class="line">c
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -556,6 +645,10 @@ This is <span style="color: green">written in green</span>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/01/zsh/">ZSH</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/30/octopress/">Octopress</a>
       </li>
     
@@ -568,9 +661,10 @@ This is <span style="color: green">written in green</span>.</p>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/blog/categories/devops/'>devops (1)</a></li>
+    <li class='category'><a href='/blog/categories/blog/'>blog (1)</a></li>
+<li class='category'><a href='/blog/categories/devops/'>devops (1)</a></li>
 <li class='category'><a href='/blog/categories/github-/'>github, (1)</a></li>
-<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/shell/'>shell (1)</a></li>
 <li class='category'><a href='/blog/categories/vagrant/'>vagrant (1)</a></li>
 
   </ul>
