@@ -9,7 +9,7 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Function Parameters $0 command $1,$2 parameters 1,2 $# number of parameters $@ all parameters in array, start with 1..n, no 0 1
+  <meta name="description" content="ใช้ sublime expansion tab 1
 2
 3
 4
@@ -19,7 +19,18 @@
 8
 9
 10
-11 &hellip;">
+11
+12
+13
+14
+15
+16
+17
+18
+for (( i = 0; i &lt; 2; i++ )); do echo $i
+done
+echo $i
+if [[ $i == 2 ]]; then &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -105,9 +116,47 @@
   </header>
 
 
-  <div class="entry-content"><h2 id="function">Function</h2>
+  <div class="entry-content"><p>ใช้ sublime expansion <code>tab</code></p>
 
-<h3 id="parameters">Parameters</h3>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="k">for</span> <span class="o">((</span> <span class="nv">i</span> <span class="o">=</span> 0; i &lt; 2; i++ <span class="o">))</span>; <span class="k">do</span>
+</span><span class="line"><span class="k">  </span><span class="nb">echo</span> <span class="nv">$i</span>
+</span><span class="line"><span class="k">done</span>
+</span><span class="line"><span class="nb">echo</span> <span class="nv">$i</span>
+</span><span class="line"><span class="k">if</span> <span class="o">[[</span> <span class="nv">$i</span> <span class="o">==</span> 2 <span class="o">]]</span>; <span class="k">then</span>
+</span><span class="line"><span class="k">  </span><span class="nb">echo</span> <span class="nv">$i</span>
+</span><span class="line"><span class="k">fi</span>
+</span><span class="line"><span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> &gt; 0 <span class="o">]]</span>; <span class="k">do</span>
+</span><span class="line"><span class="k">  </span><span class="nb">echo</span> <span class="nv">$i</span>
+</span><span class="line">  <span class="o">((</span><span class="nv">i</span> <span class="o">=</span> i - 1<span class="o">))</span>
+</span><span class="line"><span class="k">done</span>
+</span><span class="line">
+</span><span class="line">0
+</span><span class="line">1
+</span><span class="line">2
+</span><span class="line">2
+</span><span class="line">2
+</span><span class="line">1
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="function-parameters">Function Parameters</h2>
 
 <ul>
   <li>$0 command</li>
@@ -149,6 +198,7 @@
 </span><span class="line">
 </span><span class="line">c
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
 </div>
   
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: shell | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/shell/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-01-01T10:51:45+07:00</updated>
+  <updated>2013-01-01T11:22:12+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -18,9 +18,30 @@
     <link href="http://ppt.github.com/blog/2013/01/01/zsh/"/>
     <updated>2013-01-01T10:30:00+07:00</updated>
     <id>http://ppt.github.com/blog/2013/01/01/zsh</id>
-    <content type="html"><![CDATA[<h2 id="function">Function</h2>
+    <content type="html"><![CDATA[<p>ใช้ sublime expansion <code>tab</code></p>
 
-<h3 id="parameters">Parameters</h3>
+<p>``` bash
+for (( i = 0; i &lt; 2; i++ )); do
+  echo $i
+done
+echo $i
+if [[ $i == 2 ]]; then
+  echo $i
+fi
+while [[ $i &gt; 0 ]]; do
+  echo $i
+  ((i = i - 1))
+done</p>
+
+<p>0
+1
+2
+2
+2
+1
+```</p>
+
+<h2 id="function-parameters">Function Parameters</h2>
 
 <ul>
   <li>$0 command</li>
@@ -47,6 +68,7 @@ a b c</p>
 
 <p>c
 ```</p>
+
 ]]></content>
   </entry>
   
