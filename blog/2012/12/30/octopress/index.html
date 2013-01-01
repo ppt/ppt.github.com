@@ -9,7 +9,7 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Octopress Web Home: http://octopress.org/ Document: http://octopress.org/docs/ Kramdown: http://kramdown.rubyforge.org/quickref.html Octopress &hellip;">
+  <meta name="description" content="Octopress Web Home: http://octopress.org/ Document: http://octopress.org/docs/ Pygment Language List : http://pygments.org/docs/lexers/ Kramdown: &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -97,6 +97,7 @@
 <ul>
   <li>Home: <a href="http://octopress.org/">http://octopress.org/</a></li>
   <li>Document: <a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
+  <li>Pygment Language List : <a href="http://pygments.org/docs/lexers/">http://pygments.org/docs/lexers/</a></li>
   <li>Kramdown: <a href="http://kramdown.rubyforge.org/quickref.html">http://kramdown.rubyforge.org/quickref.html</a></li>
 </ul>
 
@@ -147,7 +148,7 @@
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>\_config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 </pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="c1"># markdown: rdiscount</span>
-</span><span class="line"><span class="n">markdown</span><span class="p">:</span> <span class="n">kramdown</span>
+</span><span class="line">  <span class="n">markdown</span><span class="p">:</span> <span class="n">kramdown</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="table-patch">Table Patch</h2>
@@ -232,7 +233,7 @@
   <li>add link header : source/_includes/head.html</li>
 </ul>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>source/_includes/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class="html"><span class="line"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/stylesheets/data-table.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen, projection&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="nt">/&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -240,12 +241,24 @@
   <li>การใช้งาน</li>
 </ul>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>source/_includes/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<p>Minimal</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 </pre></td><td class="code"><pre><code class="html"><span class="line">header#1 | header#2 | header#3
 </span><span class="line">|-
 </span><span class="line">cell 1 | cell 2 | cell 3
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>SmartMarkdown Generate</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line">| header#1 | header#2 | header#3 |
+</span><span class="line">| -        |          |          |
+</span><span class="line">| cell 1   | cell 2   | cell 3   |
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <table>
@@ -261,6 +274,46 @@
       <td>cell 1</td>
       <td>cell 2</td>
       <td>cell 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+More Format</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="text"><span class="line">|-
+</span><span class="line">| Default aligned | Left aligned | Center aligned | Right aligned
+</span><span class="line">|-|:-|:-:|-:
+</span><span class="line">| First body part | Second cell | Third cell | fourth cell
+</span><span class="line">| Second line |foo | **strong** | baz
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Default aligned</th>
+      <th style="text-align: left">Left aligned</th>
+      <th style="text-align: center">Center aligned</th>
+      <th style="text-align: right">Right aligned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First body part</td>
+      <td style="text-align: left">Second cell</td>
+      <td style="text-align: center">Third cell</td>
+      <td style="text-align: right">fourth cell</td>
+    </tr>
+    <tr>
+      <td>Second line</td>
+      <td style="text-align: left">foo</td>
+      <td style="text-align: center"><strong>strong</strong></td>
+      <td style="text-align: right">baz</td>
     </tr>
   </tbody>
 </table>
@@ -310,17 +363,31 @@
 </span><span class="line"><span class="c">#### header</span>
 </span><span class="line">Effect only header
 </span><span class="line">*italic red*<span class="o">{</span>: <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;color: red&quot;</span><span class="o">}</span>
-</span><span class="line">This is &lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;color: green&quot;</span>&gt;written in red&lt;/span&gt;.
+</span><span class="line">This is &lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;color: green&quot;</span>&gt;written in green&lt;/span&gt;.
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h4 style="color: blue" id="header">header</h4>
 <p>Effect only header<br />
 <em style="color: red">italic red</em><br />
-This is <span style="color: green">written in red</span>.</p>
+This is <span style="color: green">written in green</span>.</p>
 
 <h2 id="add-catagories-section-">Add catagories section ทางด้านขวา</h2>
 
 <p><a href="http://www.dotnetguy.co.uk/post/2012/06/25/octopress-category-list-plugin/">http://www.dotnetguy.co.uk/post/2012/06/25/octopress-category-list-plugin/</a></p>
+
+<h2 id="smartmarkdown-plugin">SmartMarkdown Plugin</h2>
+
+<ul>
+  <li>Shift-Tab : Fold | Unfold headers global</li>
+  <li>Tab : Fold | unfold header individual</li>
+  <li>Tab | Shift-Tab : Table cell navigate
+    <ul>
+      <li>คีย์ header row ก่อน ตามด้วย |- แล้วกด Tab </li>
+    </ul>
+  </li>
+  <li>Automatic list : End with blank enter</li>
+  <li><strong style="color: red">Conflict with MarkdownEditing Plugin</strong></li>
+</ul>
 </div>
 
 
@@ -414,7 +481,7 @@ This is <span style="color: green">written in red</span>.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Praphan Theeravanvilai -
+  Copyright &copy; 2013 - Praphan Theeravanvilai -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
