@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linux, | For The Love Technologies]]></title>
+  <link href="http://ppt.github.com/blog/categories/linux-/atom.xml" rel="self"/>
+  <link href="http://ppt.github.com/"/>
+  <updated>2013-01-02T08:35:52+07:00</updated>
+  <id>http://ppt.github.com/</id>
+  <author>
+    <name><![CDATA[Praphan Theeravanvilai]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ssh]]></title>
+    <link href="http://ppt.github.com/blog/2013/01/02/ssh/"/>
+    <updated>2013-01-02T08:09:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2013/01/02/ssh</id>
+    <content type="html"><![CDATA[<ul>
+  <li>TutsPlus บทความหลัก : <a href="http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/">http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/</a></li>
+  <li>More Detail : <a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html">http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html</a></li>
+</ul>
+
+<h2 id="section">การใช้งาน</h2>
+
+<p><code>bash
+ssh user@domain.com
+</code></p>
+
+<h2 id="sshconfig">~/.ssh/config</h2>
+
+<ul>
+  <li>ใช้สร้าง alias ของ known host และ basic parameters</li>
+  <li><a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html#ToC16">http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html#ToC16</a></li>
+</ul>
+
+<h2 id="autologin">Autologin</h2>
+
+<p>``` bash
+# autologin manually
+mkdir ~/.ssh
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -C “Comment about your key goes here.”
+chmod 700 ~/.ssh &amp;&amp; chmod 600 ~/.ssh/*
+cat ~/.ssh/id_rsa.pub | ssh root@example.com ‘cat - » ~/.ssh/authorized_keys’</p>
+
+<h1 id="much-simpler">much simpler</h1>
+<p>ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -C “Comment about your key goes here.”
+ssh-copy-id user@domain.com
+```</p>
+
+<p><br />
+ssh-copy install โดยใช้ brew</p>
+
+<h2 id="start-graphic-program">Start Graphic Program</h2>
+
+<p><code>bash
+ssh -X -C user@domina.com
+firefox
+gnome-session  # cannot use with root user
+</code></p>
+
+<p><br /></p>
+
+<h2 id="scp">scp</h2>
+
+<p><code>bash
+# copy to ~/myfile
+scp /path/local-file user@domain.com:myfile
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

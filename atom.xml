@@ -4,7 +4,7 @@
   <title><![CDATA[For The Love Technologies]]></title>
   <link href="http://ppt.github.com/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-01-01T11:22:12+07:00</updated>
+  <updated>2013-01-02T08:35:52+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ssh]]></title>
+    <link href="http://ppt.github.com/blog/2013/01/02/ssh/"/>
+    <updated>2013-01-02T08:09:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2013/01/02/ssh</id>
+    <content type="html"><![CDATA[<ul>
+  <li>TutsPlus บทความหลัก : <a href="http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/">http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/</a></li>
+  <li>More Detail : <a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html">http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html</a></li>
+</ul>
+
+<h2 id="section">การใช้งาน</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">ssh user@domain.com
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="sshconfig">~/.ssh/config</h2>
+
+<ul>
+  <li>ใช้สร้าง alias ของ known host และ basic parameters</li>
+  <li><a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html#ToC16">http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html#ToC16</a></li>
+</ul>
+
+<h2 id="autologin">Autologin</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c"># autologin manually</span>
+</span><span class="line">mkdir ~/.ssh
+</span><span class="line">ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -C <span class="s2">&quot;Comment about your key goes here.&quot;</span>
+</span><span class="line">chmod 700 ~/.ssh <span class="o">&amp;&amp;</span> chmod 600 ~/.ssh/*
+</span><span class="line">cat ~/.ssh/id_rsa.pub | ssh root@example.com <span class="s1">&#39;cat - &gt;&gt; ~/.ssh/authorized_keys&#39;</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># much simpler</span>
+</span><span class="line">ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -C <span class="s2">&quot;Comment about your key goes here.&quot;</span>
+</span><span class="line">ssh-copy-id user@domain.com
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p><br />
+ssh-copy install โดยใช้ brew</p>
+
+<h2 id="start-graphic-program">Start Graphic Program</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">ssh -X -C user@domina.com
+</span><span class="line">firefox
+</span><span class="line">gnome-session  <span class="c"># cannot use with root user</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p><br /></p>
+
+<h2 id="scp">scp</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c"># copy to ~/myfile</span>
+</span><span class="line">scp /path/local-file user@domain.com:myfile
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ZSH]]></title>
