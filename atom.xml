@@ -4,7 +4,7 @@
   <title><![CDATA[For The Love Technologies]]></title>
   <link href="http://ppt.github.com/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-01-02T08:35:52+07:00</updated>
+  <updated>2013-01-04T17:12:23+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -12,6 +12,57 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ubuntu]]></title>
+    <link href="http://ppt.github.com/blog/2013/01/04/ubuntu/"/>
+    <updated>2013-01-04T16:55:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2013/01/04/ubuntu</id>
+    <content type="html"><![CDATA[<h2 id="install--memory-stick">install โดยใช้ memory stick</h2>
+
+<ul>
+  <li>doc : <a href="http://www.ubuntu.com/download/help/create-a-usb-stick-on-windows">http://www.ubuntu.com/download/help/create-a-usb-stick-on-windows</a></li>
+  <li>software
+    <ul>
+      <li>multi-os : <a href="http://ppt.xsidekick.com/pptredmine/software/windows/YUMI-0.0.8.3.exe">http://ppt.xsidekick.com/pptredmine/software/windows/YUMI-0.0.8.3.exe</a>
+        <ul>
+          <li>work only live-cd</li>
+        </ul>
+      </li>
+      <li>single os : <a href="http://ppt.xsidekick.com/pptredmine/software/windows/Universal-USB-Installer-1.9.2.1.exe">http://ppt.xsidekick.com/pptredmine/software/windows/Universal-USB-Installer-1.9.2.1.exe</a></li>
+      <li>mac os x : <a href="http://ppt.xsidekick.com/pptredmine/software/OS-X/unetbootin-mac-583.zip">http://ppt.xsidekick.com/pptredmine/software/OS-X/unetbootin-mac-583.zip</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="enable-avahi-network">Enable Avahi Network</h2>
+
+<ul>
+  <li>doc : <a href="http://howtoubuntu.org/how-to-enable-sharing-in-miro-on-ubuntu/">http://howtoubuntu.org/how-to-enable-sharing-in-miro-on-ubuntu/</a></li>
+  <li>อาจจะยังมี message local.domain error ให้เติม google dns(8.8.8.8, 8.8.4.4) ใน dns</li>
+</ul>
+
+<h2 id="install-synaptic-package-manager">install Synaptic Package Manager</h2>
+
+<ul>
+  <li>install จาก Ubuntu Software Center</li>
+</ul>
+
+<h2 id="install-openssh">install openssh</h2>
+
+<ul>
+  <li>install โดย synaptic</li>
+</ul>
+
+<h2 id="enable-vnc">enable vnc</h2>
+
+<ul>
+  <li>doc : <a href="http://askubuntu.com/questions/181915/installing-vnc-server-client-in-ubuntu-12-04">http://askubuntu.com/questions/181915/installing-vnc-server-client-in-ubuntu-12-04</a></li>
+  <li>enable โดยใช้ desktop sharing app หาโดย Dash Home ที่ใช้หา document กับ app</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ssh]]></title>
