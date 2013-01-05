@@ -4,7 +4,7 @@
   <title><![CDATA[For The Love Technologies]]></title>
   <link href="http://ppt.github.com/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-01-04T21:16:29+07:00</updated>
+  <updated>2013-01-05T09:15:24+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -45,6 +45,7 @@
 <h2 id="enable-avahi-network">Enable Avahi Network</h2>
 
 <ul>
+  <li><strong style="color: red">ไม่จำเป็นถ้า set dns ไม่ที่ google (8.8.8.8,8.8.4.4) ปัญหาอยู่ที่ dns ของ isp</strong></li>
   <li>doc : <a href="http://howtoubuntu.org/how-to-enable-sharing-in-miro-on-ubuntu/">http://howtoubuntu.org/how-to-enable-sharing-in-miro-on-ubuntu/</a></li>
   <li>อาจจะยังมี message local.domain error ให้เติม google dns(8.8.8.8, 8.8.4.4) ใน dns</li>
 </ul>
@@ -68,6 +69,13 @@
   <li>enable โดยใช้ desktop sharing app หาโดย Dash Home ที่ใช้หา document กับ app</li>
 </ul>
 
+<h2 id="save-and-restore-pkg--install-">save and restore pkg ที่ install ไปแล้ว</h2>
+
+<ul>
+  <li><strong>APTonCD</strong> : <a href="http://www.howtogeek.com/110034/how-to-back-up-restore-your-installed-ubuntu-packages-with-aptoncd/">http://www.howtogeek.com/110034/how-to-back-up-restore-your-installed-ubuntu-packages-with-aptoncd/</a></li>
+  <li><strong>Sushi, huh?</strong> : <a href="http://sushi-huh.sourceforge.net/">http://sushi-huh.sourceforge.net/</a></li>
+  <li><strong style="color: red">ยังไม่ได้ลองทั้งคู่</strong></li>
+</ul>
 ]]></content>
   </entry>
   
