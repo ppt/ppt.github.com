@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-01-05T09:15:24+07:00</updated>
+  <updated>2013-01-05T11:05:09+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -68,6 +68,27 @@
   <li>doc : <a href="http://askubuntu.com/questions/181915/installing-vnc-server-client-in-ubuntu-12-04">http://askubuntu.com/questions/181915/installing-vnc-server-client-in-ubuntu-12-04</a></li>
   <li>enable โดยใช้ desktop sharing app หาโดย Dash Home ที่ใช้หา document กับ app</li>
 </ul>
+
+<h2 id="config-zsh">config zsh</h2>
+<ul>
+  <li>theme ‘kolo’</li>
+</ul>
+
+<p><code>bash
+PROMPT='%{$fg[blue]%}%n@%m: %{$reset_color%}%B%F{magenta}%c%B%F{green}${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
+</code></p>
+
+<ul>
+  <li>.zshrc</li>
+</ul>
+
+<p>``` bash
+# History Search with UP/Down arrowkey
+bindkey “${terminfo[kcuu1]}” up-line-or-search
+bindkey “${terminfo[kcud1]}” down-line-or-search</p>
+
+<p>export EDITOR=nano
+```</p>
 
 <h2 id="save-and-restore-pkg--install-">save and restore pkg ที่ install ไปแล้ว</h2>
 

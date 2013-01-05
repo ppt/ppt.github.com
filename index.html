@@ -146,6 +146,31 @@
   <li>enable โดยใช้ desktop sharing app หาโดย Dash Home ที่ใช้หา document กับ app</li>
 </ul>
 
+<h2 id="config-zsh">config zsh</h2>
+<ul>
+  <li>theme ‘kolo’</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">PROMPT</span><span class="o">=</span><span class="s1">&#39;%{$fg[blue]%}%n@%m: %{$reset_color%}%B%F{magenta}%c%B%F{green}${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% &#39;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ul>
+  <li>.zshrc</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c"># History Search with UP/Down arrowkey</span>
+</span><span class="line">bindkey <span class="s2">&quot;${terminfo[kcuu1]}&quot;</span> up-line-or-search
+</span><span class="line">bindkey <span class="s2">&quot;${terminfo[kcud1]}&quot;</span> down-line-or-search
+</span><span class="line">
+</span><span class="line"><span class="nb">export </span><span class="nv">EDITOR</span><span class="o">=</span>nano
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
 <h2 id="save-and-restore-pkg--install-">save and restore pkg ที่ install ไปแล้ว</h2>
 
 <ul>
