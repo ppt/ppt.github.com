@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-01-26T17:20:59+07:00</updated>
+  <updated>2013-01-26T17:32:16+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -26,6 +26,84 @@
   <li>Pygment Language List : <a href="http://pygments.org/docs/lexers/">http://pygments.org/docs/lexers/</a></li>
   <li>Kramdown: <a href="http://kramdown.rubyforge.org/quickref.html">http://kramdown.rubyforge.org/quickref.html</a></li>
 </ul>
+
+<h2 id="basic-syntax">Basic Syntax</h2>
+
+<ul>
+  <li>Header</li>
+</ul>
+
+<p><code>
+## Header 
+</code></p>
+
+<ul>
+  <li>Bullet</li>
+</ul>
+
+<p><code>
+- asdf
+  - asdf
+</code></p>
+
+<ul>
+  <li>Table</li>
+</ul>
+
+<p><code>
+header#1 | header#2 | header#3
+|-
+cell 1 | cell 2 | cell 3
+</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>header#1</th>
+      <th>header#2</th>
+      <th>header#3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cell 1</td>
+      <td>cell 2</td>
+      <td>cell 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<ul>
+  <li>Bold &amp; Italic</li>
+</ul>
+
+<p><code>
+*italic*   **bold**
+_italic_   __bold__
+</code></p>
+
+<p><em>italic</em>   <strong>bold</strong><br />
+<em>italic</em>   <strong>bold</strong></p>
+
+<ul>
+  <li>Add break <code>&lt;br&gt;</code></li>
+  <li>Linefeed ใน paragraph เติม 2 space ท้ายบรรทัด</li>
+  <li>Set สี</li>
+</ul>
+
+<p style="color: blue">```</p>
+<p>#### header
+Effect only header<br />
+<em style="color: red">italic red</em><br />
+This is <span style="color: green">written in green</span>.
+```</p>
+
+<h4 style="color: blue" id="header">header</h4>
+<p>Effect only header<br />
+<em style="color: red">italic red</em><br />
+This is <span style="color: green">written in green</span>.</p>
 
 <h2 id="octopress-installation">Octopress Installation</h2>
 
@@ -159,9 +237,7 @@ export LANG=en_US.UTF-8
 &lt;link href="http://ppt.github.com/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" /&gt;
 </code></p>
 
-<ul>
-  <li>การใช้งาน</li>
-</ul>
+<h2 id="section">การใช้งาน</h2>
 
 <p>Minimal</p>
 
@@ -235,7 +311,7 @@ More Format</p>
 
 <p><br /></p>
 
-<h2 id="section">คำสั่งหลัก ๆ</h2>
+<h2 id="section-1">คำสั่งหลัก ๆ</h2>
 
 <p><code>bash
 rake -T                        # List all commands
@@ -271,7 +347,7 @@ Effect only header<br />
 This is <span style="color: green">written in green</span>.
 ```</p>
 
-<h4 style="color: blue" id="header">header</h4>
+<h4 style="color: blue" id="header-1">header</h4>
 <p>Effect only header<br />
 <em style="color: red">italic red</em><br />
 This is <span style="color: green">written in green</span>.</p>
