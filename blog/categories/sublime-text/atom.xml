@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sublime-text | For The Love Technologies]]></title>
+  <link href="http://ppt.github.com/blog/categories/sublime-text/atom.xml" rel="self"/>
+  <link href="http://ppt.github.com/"/>
+  <updated>2013-01-26T17:20:59+07:00</updated>
+  <id>http://ppt.github.com/</id>
+  <author>
+    <name><![CDATA[Praphan Theeravanvilai]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime Text 2]]></title>
+    <link href="http://ppt.github.com/blog/2013/01/26/sublime-text-2/"/>
+    <updated>2013-01-26T16:58:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2013/01/26/sublime-text-2</id>
+    <content type="html"><![CDATA[<h2 id="go-to-anything-panel">Go To Anything Panel</h2>
+
+<ul>
+  <li><code>cmd-p</code> open</li>
+  <li><code>filename</code></li>
+  <li><code>@function</code></li>
+  <li><code>#variable</code></li>
+  <li><code>:1000</code> line number</li>
+</ul>
+
+<h2 id="switch-project">Switch Project</h2>
+
+<ul>
+  <li><code>cmd-ctrl-p</code></li>
+</ul>
+
+<h2 id="multi-cursor">Multi Cursor</h2>
+
+<ul>
+  <li><code>cmd-d</code></li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>
