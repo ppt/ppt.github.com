@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chef | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/chef/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-02-03T11:17:03+07:00</updated>
+  <updated>2013-02-03T19:17:11+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -18,34 +18,38 @@
     <link href="http://ppt.github.com/blog/2013/01/29/chef/"/>
     <updated>2013-01-29T08:30:00+07:00</updated>
     <id>http://ppt.github.com/blog/2013/01/29/chef</id>
-    <content type="html"><![CDATA[<h2 id="install-rvm-to-specific-user">Install rvm to specific user</h2>
+    <content type="html"><![CDATA[<h2 id="script">Script</h2>
 
-<p>``` ruby Using Chef Environment “mycookbook/myrecipe/recipe/default.rb”
+<ul>
+  <li><a href="http://wiki.opscode.com/display/chef/Resources#Resources-Script">http://wiki.opscode.com/display/chef/Resources#Resources-Script</a></li>
+  <li>head : bash, ruby, python, perl, cash</li>
+  <li>attribute : cwd, user, environment, creates, not_if, only_if</li>
+</ul>
+
+<h2 id="install-rvm-to-specific-user">Install RVM to specific user</h2>
+
+<ul>
+  <li>Need to set $HOME environment</li>
+</ul>
+
+<p>``` ruby  “mycookbook/myrecipe/recipe/default.rb”
 package ‘curl’</p>
 
-<p>execute “install rvm” do
+<p>bash “install rvm” do
   cwd “/home/vagrant”
   user ‘vagrant’
   environment ‘HOME’ =&gt; “/home/vagrant”
-  command “curl -L https://get.rvm.io | bash -s stable –ruby”</p>
+  code «-EOS
+    curl -L https://get.rvm.io | bash -s stable –ruby
+  EOS</p>
 
 <p># manual checks
   # not_if do
-  #   File.exists?(“/home/vagrant/.ssh”)
+  #   File.exists?(“/home/vagrant/.rvm”)
   # end</p>
 
 <p># not execute if file exists
-  creates “/home/vagrant/.ssh”
-<code>
-</code> ruby Using Sudo to set environment and run user profile “mycookbook/myrecipe/recipe/default.rb”
-package ‘curl’</p>
-
-<p>execute “install rvm” do
-  # su need ROOT user
-  command “su - vagrant -c ‘curl -L https://get.rvm.io | bash -s stable –ruby’”</p>
-
-<p># not execute if file exists
-  creates “/home/vagrant/.ssh”
+  creates “/home/vagrant/.rvm”
 end</p>
 
 <p>```</p>

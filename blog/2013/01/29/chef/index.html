@@ -9,22 +9,7 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Install rvm to specific user Using Chef Environment &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-package &# &hellip;">
+  <meta name="description" content="Script http://wiki.opscode.com/display/chef/Resources#Resources-Script head : bash, ruby, python, perl, cash attribute : cwd, user, environment, &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -107,9 +92,21 @@ package &# &hellip;">
   </header>
 
 
-<div class="entry-content"><h2 id="install-rvm-to-specific-user">Install rvm to specific user</h2>
+<div class="entry-content"><h2 id="script">Script</h2>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Using Chef Environment &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<ul>
+  <li><a href="http://wiki.opscode.com/display/chef/Resources#Resources-Script">http://wiki.opscode.com/display/chef/Resources#Resources-Script</a></li>
+  <li>head : bash, ruby, python, perl, cash</li>
+  <li>attribute : cwd, user, environment, creates, not_if, only_if</li>
+</ul>
+
+<h2 id="install-rvm-to-specific-user">Install RVM to specific user</h2>
+
+<ul>
+  <li>Need to set $HOME environment</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>&#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -124,39 +121,26 @@ package &# &hellip;">
 <span class="line-number">13</span>
 <span class="line-number">14</span>
 <span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
 </pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
 </span><span class="line">
-</span><span class="line"><span class="n">execute</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
+</span><span class="line"><span class="n">bash</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
 </span><span class="line">  <span class="n">cwd</span> <span class="s2">&quot;/home/vagrant&quot;</span>
 </span><span class="line">  <span class="n">user</span> <span class="s1">&#39;vagrant&#39;</span>
 </span><span class="line">  <span class="n">environment</span> <span class="s1">&#39;HOME&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;/home/vagrant&quot;</span>
-</span><span class="line">  <span class="n">command</span> <span class="s2">&quot;curl -L https://get.rvm.io | bash -s stable --ruby&quot;</span>
+</span><span class="line">  <span class="n">code</span> <span class="o">&lt;&lt;-</span><span class="no">EOS</span>
+</span><span class="line"><span class="sh">    curl -L https://get.rvm.io | bash -s stable --ruby</span>
+</span><span class="line"><span class="no">  EOS</span>
 </span><span class="line">
 </span><span class="line">  <span class="c1"># manual checks</span>
 </span><span class="line">  <span class="c1"># not_if do</span>
-</span><span class="line">  <span class="c1">#   File.exists?(&quot;/home/vagrant/.ssh&quot;)</span>
+</span><span class="line">  <span class="c1">#   File.exists?(&quot;/home/vagrant/.rvm&quot;)</span>
 </span><span class="line">  <span class="c1"># end</span>
 </span><span class="line">
 </span><span class="line">  <span class="c1"># not execute if file exists</span>
-</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.ssh&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Using Sudo to set environment and run user profile &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
-</span><span class="line">
-</span><span class="line"><span class="n">execute</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
-</span><span class="line">  <span class="c1"># su need ROOT user</span>
-</span><span class="line">  <span class="n">command</span> <span class="s2">&quot;su - vagrant -c &#39;curl -L https://get.rvm.io | bash -s stable --ruby&#39;&quot;</span>
-</span><span class="line">
-</span><span class="line">  <span class="c1"># not execute if file exists</span>
-</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.ssh&quot;</span>
+</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.rvm&quot;</span>
 </span><span class="line"><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
