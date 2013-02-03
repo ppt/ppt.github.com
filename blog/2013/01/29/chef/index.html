@@ -5,11 +5,26 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ssh - For The Love Technologies</title>
+  <title>chef - For The Love Technologies</title>
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="TutsPlus บทความหลัก : http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/ More Detail : http://www.jfranken.de/homepages/johannes/ &hellip;">
+  <meta name="description" content="Install rvm to specific user Using Chef Environment &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+package &# &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -20,7 +35,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ppt.github.com/blog/2013/01/02/ssh/">
+  <link rel="canonical" href="http://ppt.github.com/blog/2013/01/29/chef/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -69,7 +84,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ssh</h1>
+      <h1 class="entry-title">Chef</h1>
     
     
       <p class="meta">
@@ -85,34 +100,16 @@
   
 
 
-<time datetime="2013-01-02T08:09:00+07:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2013</time>
+<time datetime="2013-01-29T08:30:00+07:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><ul>
-  <li>TutsPlus บทความหลัก : <a href="http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/">http://net.tutsplus.com/tutorials/tools-and-tips/ssh-what-and-how/</a></li>
-  <li>More Detail : <a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html">http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html</a></li>
-</ul>
+<div class="entry-content"><h2 id="install-rvm-to-specific-user">Install rvm to specific user</h2>
 
-<h2 id="section">การใช้งาน</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">ssh user@domain.com
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="sshconfig">~/.ssh/config</h2>
-
-<ul>
-  <li>ใช้สร้าง alias ของ known host และ basic parameters</li>
-  <li><a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html#ToC16">http://www.jfranken.de/homepages/johannes/vortraege/ssh1_inhalt.en.html#ToC16</a></li>
-</ul>
-
-<h2 id="autologin">Autologin</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Using Chef Environment &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -121,38 +118,46 @@
 <span class="line-number">7</span>
 <span class="line-number">8</span>
 <span class="line-number">9</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c"># autologin manually</span>
-</span><span class="line">mkdir ~/.ssh
-</span><span class="line">ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -C <span class="s2">&quot;Comment about your key goes here.&quot;</span>
-</span><span class="line">chmod 700 ~/.ssh <span class="o">&amp;&amp;</span> chmod 600 ~/.ssh/*
-</span><span class="line">cat ~/.ssh/id_rsa.pub | ssh root@example.com <span class="s1">&#39;cat - &gt;&gt; ~/.ssh/authorized_keys&#39;</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
 </span><span class="line">
-</span><span class="line"><span class="c"># much simpler</span>
-</span><span class="line">ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -C <span class="s2">&quot;Comment about your key goes here.&quot;</span>
-</span><span class="line">ssh-copy-id user@domain.com
+</span><span class="line"><span class="n">execute</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
+</span><span class="line">  <span class="n">cwd</span> <span class="s2">&quot;/home/vagrant&quot;</span>
+</span><span class="line">  <span class="n">user</span> <span class="s1">&#39;vagrant&#39;</span>
+</span><span class="line">  <span class="n">environment</span> <span class="s1">&#39;HOME&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;/home/vagrant&quot;</span>
+</span><span class="line">  <span class="n">command</span> <span class="s2">&quot;curl -L https://get.rvm.io | bash -s stable --ruby&quot;</span>
+</span><span class="line">
+</span><span class="line">  <span class="c1"># manual checks</span>
+</span><span class="line">  <span class="c1"># not_if do</span>
+</span><span class="line">  <span class="c1">#   File.exists?(&quot;/home/vagrant/.ssh&quot;)</span>
+</span><span class="line">  <span class="c1"># end</span>
+</span><span class="line">
+</span><span class="line">  <span class="c1"># not execute if file exists</span>
+</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.ssh&quot;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p><br />
-ssh-copy install โดยใช้ brew</p>
-
-<h2 id="start-graphic-program">Start Graphic Program</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Using Sudo to set environment and run user profile &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">ssh -X -C user@domina.com
-</span><span class="line">firefox
-</span><span class="line">gnome-session  <span class="c"># cannot use with root user</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p><br /></p>
-
-<h2 id="scp">scp</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="c"># copy to ~/myfile</span>
-</span><span class="line">scp /path/local-file user@domain.com:myfile
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
+</span><span class="line">
+</span><span class="line"><span class="n">execute</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
+</span><span class="line">  <span class="c1"># su need ROOT user</span>
+</span><span class="line">  <span class="n">command</span> <span class="s2">&quot;su - vagrant -c &#39;curl -L https://get.rvm.io | bash -s stable --ruby&#39;&quot;</span>
+</span><span class="line">
+</span><span class="line">  <span class="c1"># not execute if file exists</span>
+</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.ssh&quot;</span>
+</span><span class="line"><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
@@ -176,12 +181,12 @@ ssh-copy install โดยใช้ brew</p>
   
 
 
-<time datetime="2013-01-02T08:09:00+07:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2013</time>
+<time datetime="2013-01-29T08:30:00+07:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/os-x/'>os-x</a>
+    <a class='category' href='/blog/categories/chef/'>chef</a>
   
 </span>
 
@@ -190,7 +195,7 @@ ssh-copy install โดยใช้ brew</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ppt.github.com/blog/2013/01/02/ssh/" data-via="" data-counturl="http://ppt.github.com/blog/2013/01/02/ssh/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ppt.github.com/blog/2013/01/29/chef/" data-via="" data-counturl="http://ppt.github.com/blog/2013/01/29/chef/" >Tweet</a>
   
   
   
@@ -199,10 +204,8 @@ ssh-copy install โดยใช้ brew</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/01/zsh/" title="Previous Post: ZSH">&laquo; ZSH</a>
+        <a class="basic-alignment left" href="/blog/2013/01/26/sublime-text-2/" title="Previous Post: Sublime Text 2">&laquo; Sublime Text 2</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/01/04/ubuntu/" title="Next Post: ubuntu">ubuntu &raquo;</a>
       
     </p>
   </footer>

@@ -9,7 +9,22 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Go To Anything Panel cmd-p open filename @function #variable :1000 line number Switch Project cmd-ctrl-p Multi Cursor cmd-d ">
+  <meta name="description" content="Install rvm to specific user Using Chef Environment &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+package &# &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -66,6 +81,93 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/29/chef/">Chef</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-29T08:30:00+07:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="install-rvm-to-specific-user">Install rvm to specific user</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Using Chef Environment &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
+</span><span class="line">
+</span><span class="line"><span class="n">execute</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
+</span><span class="line">  <span class="n">cwd</span> <span class="s2">&quot;/home/vagrant&quot;</span>
+</span><span class="line">  <span class="n">user</span> <span class="s1">&#39;vagrant&#39;</span>
+</span><span class="line">  <span class="n">environment</span> <span class="s1">&#39;HOME&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;/home/vagrant&quot;</span>
+</span><span class="line">  <span class="n">command</span> <span class="s2">&quot;curl -L https://get.rvm.io | bash -s stable --ruby&quot;</span>
+</span><span class="line">
+</span><span class="line">  <span class="c1"># manual checks</span>
+</span><span class="line">  <span class="c1"># not_if do</span>
+</span><span class="line">  <span class="c1">#   File.exists?(&quot;/home/vagrant/.ssh&quot;)</span>
+</span><span class="line">  <span class="c1"># end</span>
+</span><span class="line">
+</span><span class="line">  <span class="c1"># not execute if file exists</span>
+</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.ssh&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Using Sudo to set environment and run user profile &#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
+</span><span class="line">
+</span><span class="line"><span class="n">execute</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
+</span><span class="line">  <span class="c1"># su need ROOT user</span>
+</span><span class="line">  <span class="n">command</span> <span class="s2">&quot;su - vagrant -c &#39;curl -L https://get.rvm.io | bash -s stable --ruby&#39;&quot;</span>
+</span><span class="line">
+</span><span class="line">  <span class="c1"># not execute if file exists</span>
+</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.ssh&quot;</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1025,6 +1127,10 @@ This is <span style="color: green">written in green</span>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/29/chef/">chef</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/26/sublime-text-2/">Sublime Text 2</a>
       </li>
     
@@ -1040,16 +1146,13 @@ This is <span style="color: green">written in green</span>.</p>
         <a href="/blog/2013/01/01/zsh/">ZSH</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/12/30/octopress/">Octopress</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
     <li class='category'><a href='/blog/categories/blog/'>blog (1)</a></li>
+<li class='category'><a href='/blog/categories/chef/'>chef (1)</a></li>
 <li class='category'><a href='/blog/categories/devops/'>devops (1)</a></li>
 <li class='category'><a href='/blog/categories/github/'>github (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>linux (2)</a></li>
