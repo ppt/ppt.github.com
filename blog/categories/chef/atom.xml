@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chef | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/chef/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-02-04T22:05:21+07:00</updated>
+  <updated>2013-02-04T22:17:26+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -18,7 +18,35 @@
     <link href="http://ppt.github.com/blog/2013/01/29/chef/"/>
     <updated>2013-01-29T08:30:00+07:00</updated>
     <id>http://ppt.github.com/blog/2013/01/29/chef</id>
-    <content type="html"><![CDATA[<h2 id="attribute">Attribute</h2>
+    <content type="html"><![CDATA[<h2 id="user">User</h2>
+
+<ul>
+  <li>ต้องใส่ home, shell, password, supports</li>
+</ul>
+
+<p><div><script src='https://gist.github.com/4707310.js'></script>
+<noscript><pre><code>user &quot;faye&quot; do
+  home &quot;/home/faye&quot;
+  shell &quot;/bin/bash&quot;
+  # generate by using openssl
+  # openssl passwd -1 &quot;password&quot;  
+  password &quot;$1$puZuFa2D$mAFihLNkPICbSKezFgRT3.&quot;
+  supports manage_home: true
+end</code></pre></noscript></div>
+</p>
+
+<ul>
+  <li>delete user ไม่ต้องมี attribute อื่นนอกจาก action</li>
+</ul>
+
+<p><div><script src='https://gist.github.com/4707320.js'></script>
+<noscript><pre><code>user &quot;faye&quot; do
+  action :remove
+end
+</code></pre></noscript></div>
+</p>
+
+<h2 id="attribute">Attribute</h2>
 
 <ul>
   <li>การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb</li>
@@ -107,7 +135,7 @@ end
 </code></pre></noscript></div>
 </p>
 
-<p>r### Faye</p>
+<h3 id="faye">Faye</h3>
 
 <p><div><script src='https://gist.github.com/4706314.js'></script>
 <noscript><pre><code>gem_package &quot;ruby-shadow&quot;

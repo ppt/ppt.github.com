@@ -9,9 +9,7 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Attribute การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb # Vagrant File
-chef.json = { :faye =&gt; { :user =&gt; 'faye'
-}} # &hellip;">
+  <meta name="description" content="User ต้องใส่ home, shell, password, supports user &quot;faye&quot; do home &quot;/home/faye&quot; shell &quot;/bin/bash&quot; # generate by using &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -97,7 +95,33 @@ chef.json = { :faye =&gt; { :user =&gt; 'faye'
   </header>
 
 
-  <div class="entry-content"><h2 id="attribute">Attribute</h2>
+  <div class="entry-content"><h2 id="user">User</h2>
+
+<ul>
+  <li>ต้องใส่ home, shell, password, supports</li>
+</ul>
+
+<div><script src="https://gist.github.com/4707310.js"></script>
+<noscript><pre><code>user &quot;faye&quot; do
+  home &quot;/home/faye&quot;
+  shell &quot;/bin/bash&quot;
+  # generate by using openssl
+  # openssl passwd -1 &quot;password&quot;  
+  password &quot;$1$puZuFa2D$mAFihLNkPICbSKezFgRT3.&quot;
+  supports manage_home: true
+end</code></pre></noscript></div>
+
+<ul>
+  <li>delete user ไม่ต้องมี attribute อื่นนอกจาก action</li>
+</ul>
+
+<div><script src="https://gist.github.com/4707320.js"></script>
+<noscript><pre><code>user &quot;faye&quot; do
+  action :remove
+end
+</code></pre></noscript></div>
+
+<h2 id="attribute">Attribute</h2>
 
 <ul>
   <li>การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb</li>
@@ -183,7 +207,7 @@ end
 end
 </code></pre></noscript></div>
 
-<p>r### Faye</p>
+<h3 id="faye">Faye</h3>
 
 <div><script src="https://gist.github.com/4706314.js"></script>
 <noscript><pre><code>gem_package &quot;ruby-shadow&quot;
