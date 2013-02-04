@@ -9,7 +9,11 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Script http://wiki.opscode.com/display/chef/Resources#Resources-Script head : bash, ruby, python, perl, cash attribute : cwd, user, environment, &hellip;">
+  <meta name="description" content="Attribute การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb # Vagrant File
+chef.json = { :faye =&gt; {
+:user =&gt; 'faye'
+}
+} # &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -92,7 +96,33 @@
   </header>
 
 
-<div class="entry-content"><h2 id="script">Script</h2>
+<div class="entry-content"><h2 id="attribute">Attribute</h2>
+
+<ul>
+  <li>การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb</li>
+</ul>
+
+<div><script src="https://gist.github.com/4706220.js"></script>
+<noscript><pre><code># Vagrant File
+chef.json = { :faye =&gt; {
+:user =&gt; 'faye'
+}
+}
+ 
+# mycookbooks/myrecipe/attributes/default.rb
+default[:faye][:home] = '/home/faye/faye'
+default[:faye][:user] = 'attribute2'
+ 
+# mycookbooks/myrecipe/recipes/default.rb
+bash &quot;dump json&quot; do
+code &lt;&lt;-EOS
+echo &quot;hello #{node[:faye][:user]}&quot;
+echo &quot;#{node[:faye][:home]}&quot;
+exit 1
+EOS
+end</code></pre></noscript></div>
+
+<h2 id="script">Script</h2>
 
 <ul>
   <li><a href="http://wiki.opscode.com/display/chef/Resources#Resources-Script">http://wiki.opscode.com/display/chef/Resources#Resources-Script</a></li>
@@ -100,49 +130,102 @@
   <li>attribute : cwd, user, environment, creates, not_if, only_if</li>
 </ul>
 
-<h2 id="install-rvm-to-specific-user">Install RVM to specific user</h2>
+<h2 id="recipe">Recipe</h2>
+
+<h3 id="install-rvm-to-specific-user">Install RVM to specific user</h3>
 
 <ul>
-  <li>Need to set $HOME environment</li>
+  <li>Using Chef Environment
+    <ul>
+      <li>Need to set cwd, user, $HOME environment</li>
+    </ul>
+  </li>
 </ul>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>&#8220;mycookbook/myrecipe/recipe/default.rb&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">package</span> <span class="s1">&#39;curl&#39;</span>
-</span><span class="line">
-</span><span class="line"><span class="n">bash</span> <span class="s2">&quot;install rvm&quot;</span> <span class="k">do</span>
-</span><span class="line">  <span class="n">cwd</span> <span class="s2">&quot;/home/vagrant&quot;</span>
-</span><span class="line">  <span class="n">user</span> <span class="s1">&#39;vagrant&#39;</span>
-</span><span class="line">  <span class="n">environment</span> <span class="s1">&#39;HOME&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;/home/vagrant&quot;</span>
-</span><span class="line">  <span class="n">code</span> <span class="o">&lt;&lt;-</span><span class="no">EOS</span>
-</span><span class="line"><span class="sh">    curl -L https://get.rvm.io | bash -s stable --ruby</span>
-</span><span class="line"><span class="no">  EOS</span>
-</span><span class="line">
-</span><span class="line">  <span class="c1"># manual checks</span>
-</span><span class="line">  <span class="c1"># not_if do</span>
-</span><span class="line">  <span class="c1">#   File.exists?(&quot;/home/vagrant/.rvm&quot;)</span>
-</span><span class="line">  <span class="c1"># end</span>
-</span><span class="line">
-</span><span class="line">  <span class="c1"># not execute if file exists</span>
-</span><span class="line">  <span class="n">creates</span> <span class="s2">&quot;/home/vagrant/.rvm&quot;</span>
-</span><span class="line"><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div><script src="https://gist.github.com/4706247.js"></script>
+<noscript><pre><code># package 'curl'
+
+bash &quot;install rvm&quot; do
+  cwd &quot;/home/vagrant&quot;
+  user 'vagrant'
+  environment 'HOME' =&gt; &quot;/home/vagrant&quot;
+  code &lt;&lt;-EOS
+    curl -L https://get.rvm.io | bash -s stable --ruby
+  EOS
+
+  # manual checks
+  # not_if do
+  #   File.exists?(&quot;/home/vagrant/.rvm&quot;)
+  # end
+
+  # not execute if file exists
+  creates &quot;/home/vagrant/.rvm&quot;
+end
+</code></pre></noscript></div>
+
+<ul>
+  <li>Using Bash
+    <ul>
+      <li>ต้องเป็น ROOT user</li>
+      <li>No environment setting</li>
+    </ul>
+  </li>
+</ul>
+
+<div><script src="https://gist.github.com/4706285.js"></script>
+<noscript><pre><code>bash &quot;install rvm&quot; do
+  # need to be root user
+  code &lt;&lt;-EOS
+    su - vagrant -c 'curl -L https://get.rvm.io | bash -s stable --ruby'
+  EOS
+  creates &quot;/home/vagrant/.rvm&quot;
+end
+</code></pre></noscript></div>
+
+<h3 id="faye">Faye</h3>
+
+<div><script src="https://gist.github.com/4706314.js"></script>
+<noscript><pre><code>gem_package &quot;ruby-shadow&quot;
+
+user &quot;faye&quot; do
+  # action :remove
+  action :create
+  home &quot;/home/faye&quot;
+  shell &quot;/bin/bash&quot;
+  password &quot;$1$puZuFa2D$mAFihLNkPICbSKezFgRT3.&quot;
+  supports manage_home: true
+end
+
+package 'curl'
+
+bash &quot;install rvm&quot; do
+  cwd &quot;/home/faye&quot;
+  user 'faye'
+  environment 'HOME' =&gt; &quot;/home/faye&quot;
+  code &lt;&lt;-EOS
+    curl -L https://get.rvm.io | bash -s stable --ruby
+  EOS
+  creates &quot;/home/faye/.rvm&quot;
+end
+
+bash &quot;install ruby 1.9.2&quot; do
+  code &lt;&lt;-EOS
+    su - faye -c 'rvm install 1.9.2'
+  EOS
+  creates &quot;/home/faye/.rvm/rubies/ruby-1.9.2-p320&quot;
+end
+
+package 'g++'
+
+bash &quot;install faye&quot; do
+  code &lt;&lt;-EOS
+    su - faye -c 'mkdir faye; cd faye; rvm use 1.9.2; rvm gemset create faye; rvm use 1.9.2@faye; gem install thin; gem install faye; echo &quot;rvm use 1.9.2@faye&quot; &gt; .rvmrc'
+  EOS
+  creates &quot;/home/faye/faye&quot;
+
+end
+</code></pre></noscript></div>
+
 </div>
 
 
