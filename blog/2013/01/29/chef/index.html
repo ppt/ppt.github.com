@@ -10,10 +10,8 @@
 
   
   <meta name="description" content="Attribute การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb # Vagrant File
-chef.json = { :faye =&gt; {
-:user =&gt; 'faye'
-}
-} # &hellip;">
+chef.json = { :faye =&gt; { :user =&gt; 'faye'
+}} # &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -102,25 +100,25 @@ chef.json = { :faye =&gt; {
   <li>การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb</li>
 </ul>
 
-<div><script src="https://gist.github.com/4706220.js"></script>
+<div><script src="https://gist.github.com/4707235.js"></script>
 <noscript><pre><code># Vagrant File
 chef.json = { :faye =&gt; {
-:user =&gt; 'faye'
-}
-}
+ :user =&gt; 'faye'
+}}
  
 # mycookbooks/myrecipe/attributes/default.rb
 default[:faye][:home] = '/home/faye/faye'
 default[:faye][:user] = 'attribute2'
- 
+
 # mycookbooks/myrecipe/recipes/default.rb
 bash &quot;dump json&quot; do
-code &lt;&lt;-EOS
-echo &quot;hello #{node[:faye][:user]}&quot;
-echo &quot;#{node[:faye][:home]}&quot;
-exit 1
-EOS
-end</code></pre></noscript></div>
+  code &lt;&lt;-EOS
+    echo &quot;hello #{node[:faye][:user]}&quot;
+    echo &quot;#{node[:faye][:home]}&quot;
+    exit 1
+  EOS
+end
+</code></pre></noscript></div>
 
 <h2 id="script">Script</h2>
 
@@ -182,7 +180,7 @@ end
 end
 </code></pre></noscript></div>
 
-<h3 id="faye">Faye</h3>
+<p>r### Faye</p>
 
 <div><script src="https://gist.github.com/4706314.js"></script>
 <noscript><pre><code>gem_package &quot;ruby-shadow&quot;
