@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chef | For The Love Technologies]]></title>
   <link href="http://ppt.github.com/blog/categories/chef/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-02-04T22:17:26+07:00</updated>
+  <updated>2013-02-05T16:47:27+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -18,7 +18,13 @@
     <link href="http://ppt.github.com/blog/2013/01/29/chef/"/>
     <updated>2013-01-29T08:30:00+07:00</updated>
     <id>http://ppt.github.com/blog/2013/01/29/chef</id>
-    <content type="html"><![CDATA[<h2 id="user">User</h2>
+    <content type="html"><![CDATA[<h2 id="templates">Templates</h2>
+
+<p><div><script src='https://gist.github.com/4713368.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+
+<h2 id="user">User</h2>
 
 <ul>
   <li>ต้องใส่ home, shell, password, supports</li>
