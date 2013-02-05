@@ -4,7 +4,7 @@
   <title><![CDATA[For The Love Technologies]]></title>
   <link href="http://ppt.github.com/atom.xml" rel="self"/>
   <link href="http://ppt.github.com/"/>
-  <updated>2013-02-05T17:08:27+07:00</updated>
+  <updated>2013-02-05T21:18:15+07:00</updated>
   <id>http://ppt.github.com/</id>
   <author>
     <name><![CDATA[Praphan Theeravanvilai]]></name>
@@ -57,6 +57,7 @@ end
 
 <ul>
   <li>การ set ค่าใน Vagrantfile จะมากก่อนค่าใน recipe/attributes/default.rb</li>
+  <li>ทุก file ใน path attributes จะถูกอ่าน ทำให้ไม่จำเป็นต้องเป็น default.rb</li>
 </ul>
 
 <div><script src="https://gist.github.com/4707235.js"></script>
