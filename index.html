@@ -9,7 +9,11 @@
   <meta name="author" content="Praphan Theeravanvilai">
 
   
-  <meta name="description" content="Documents http://wiki.opscode.com/display/chef/Resources Templates User ต้องใส่ home, shell, password, supports user &quot;faye&quot; do home &quot;/ &hellip;">
+  <meta name="description" content="Jasmine Headless Bug, Guardfile 1
+2
+3
+spec_location = &quot;spec/javascripts/%s[Ss]pec&quot;
+... watch(%r{^spec/javascripts/(.*)[Ss]pec\..*}) { |m| &hellip;">
   
 
 <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -66,6 +70,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/05/jasmine/">Jasmine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-05T10:34:00+07:00" pubdate data-updated="true">Mar 5<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="jasmine-headless">Jasmine Headless</h2>
+
+<div><script src="https://gist.github.com/5087836.js"></script>
+<noscript><pre><code /></pre></noscript></div>
+
+<div><script src="https://gist.github.com/5087874.js"></script>
+<noscript><pre><code /></pre></noscript></div>
+
+<ul>
+  <li>Bug, Guardfile</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">spec_location</span> <span class="o">=</span> <span class="s2">&quot;spec/javascripts/%s[Ss]pec&quot;</span>
+</span><span class="line"><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class="line">  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{^spec/javascripts/(.*)[Ss]pec\..*}</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="n">newest_js_file</span><span class="p">(</span><span class="n">spec_location</span> <span class="o">%</span> <span class="n">m</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>From</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">spec_location</span> <span class="o">=</span> <span class="s2">&quot;spec/javascripts/%s_spec&quot;</span>
+</span><span class="line"><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class="line">  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{^spec/javascripts/(.*)_spec\..*}</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="n">newest_js_file</span><span class="p">(</span><span class="n">spec_location</span> <span class="o">%</span> <span class="n">m</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1226,6 +1295,10 @@ This is <span style="color: green">written in green</span>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/03/05/jasmine/">jasmine</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/29/chef/">chef</a>
       </li>
     
@@ -1241,10 +1314,6 @@ This is <span style="color: green">written in green</span>.</p>
         <a href="/blog/2013/01/02/ssh/">ssh</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/01/01/zsh/">ZSH</a>
-      </li>
-    
   </ul>
 </section>
 <section>
@@ -1252,8 +1321,10 @@ This is <span style="color: green">written in green</span>.</p>
   <ul id="categories">
     <li class='category'><a href='/blog/categories/blog/'>blog (1)</a></li>
 <li class='category'><a href='/blog/categories/chef/'>chef (1)</a></li>
+<li class='category'><a href='/blog/categories/develop/'>develop (1)</a></li>
 <li class='category'><a href='/blog/categories/devops/'>devops (1)</a></li>
 <li class='category'><a href='/blog/categories/github/'>github (1)</a></li>
+<li class='category'><a href='/blog/categories/jasmine/'>jasmine (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>linux (2)</a></li>
 <li class='category'><a href='/blog/categories/os-x/'>os-x (1)</a></li>
 <li class='category'><a href='/blog/categories/shell/'>shell (1)</a></li>

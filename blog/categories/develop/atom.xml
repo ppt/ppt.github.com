@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: develop | For The Love Technologies]]></title>
+  <link href="http://ppt.github.com/blog/categories/develop/atom.xml" rel="self"/>
+  <link href="http://ppt.github.com/"/>
+  <updated>2013-03-05T11:01:23+07:00</updated>
+  <id>http://ppt.github.com/</id>
+  <author>
+    <name><![CDATA[Praphan Theeravanvilai]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[jasmine]]></title>
+    <link href="http://ppt.github.com/blog/2013/03/05/jasmine/"/>
+    <updated>2013-03-05T10:34:00+07:00</updated>
+    <id>http://ppt.github.com/blog/2013/03/05/jasmine</id>
+    <content type="html"><![CDATA[<h2 id="jasmine-headless">Jasmine Headless</h2>
+
+<p><div><script src='https://gist.github.com/5087836.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+
+<p><div><script src='https://gist.github.com/5087874.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+
+<ul>
+  <li>Bug, Guardfile</li>
+</ul>
+
+<p><code>ruby
+spec_location = "spec/javascripts/%s[Ss]pec"
+...
+  watch(%r{^spec/javascripts/(.*)[Ss]pec\..*}) { |m| newest_js_file(spec_location % m[1]) }
+</code></p>
+
+<p>From</p>
+
+<p><code>ruby
+spec_location = "spec/javascripts/%s_spec"
+...
+  watch(%r{^spec/javascripts/(.*)_spec\..*}) { |m| newest_js_file(spec_location % m[1]) }
+</code></p>
+
+]]></content>
+  </entry>
+  
+</feed>
